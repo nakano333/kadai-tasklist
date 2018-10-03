@@ -1,4 +1,4 @@
-
+package controllers;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Message;
+import models.Task;
 import utils.DBUtil;
+
 
 /**
  * Servlet implementation class CreateServlet
@@ -36,7 +37,7 @@ public class CreateServlet extends HttpServlet {
 	    if(_token != null && _token.equals(request.getSession().getId())) {
 	        EntityManager em = DBUtil.createEntityManager();
 
-	        Message m = new Message();
+	        Task m = new Task();
 
 	        String title = request.getParameter("title");
 	        m.setTitle(title);
